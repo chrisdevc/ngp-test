@@ -12,11 +12,14 @@
 <style lang="scss">
 @import "~vue-material/dist/theme/engine";
 
-@include md-register-theme("default", (
-  primary: md-get-palette-color(pink, A200),
-  accent: md-get-palette-color(indigo, 200),
-  theme: dark
-));
+@include md-register-theme(
+  "default",
+  (
+    primary: md-get-palette-color(pink, A200),
+    accent: md-get-palette-color(indigo, 200),
+    theme: dark
+  )
+);
 
 @import "~vue-material/dist/theme/all";
 @import "~vue-material/dist/components/MdButton/theme";
