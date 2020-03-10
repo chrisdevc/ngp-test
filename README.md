@@ -1,4 +1,4 @@
-# ngp-test
+# Vue-app
 
 ## Project setup
 ```
