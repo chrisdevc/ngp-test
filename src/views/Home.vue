@@ -29,12 +29,15 @@
         </grid-item>
       </grid-layout>
     </div>
-    <div v-else>loading...</div>
+    <div class="wanna-b-loader" v-else>
+      <md-progress-spinner class="md-accent" md-mode="indeterminate"></md-progress-spinner>
+      <h2>loading...</h2>
+    </div>
   </div>
 </template>
 
 <script>
-import { map, filter } from "rxjs/operators";
+import { map, filter, delay } from "rxjs/operators";
 import VueGridLayout from "vue-grid-layout";
 import injector from "vue-inject";
 
@@ -70,6 +73,8 @@ export default {
   methods: {
     getData() {
       return this.bitcoinService.getData$().pipe(
+        // simulate slow event stream to show loader
+        delay(500),
         filter(data => !!data.data.bpi),
         map(data => data.data.bpi),
         map(bpi => {
@@ -107,5 +112,13 @@ export default {
 .md-card {
   height: 100%;
   z-index: 0;
+}
+
+.wanna-b-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 </style>
