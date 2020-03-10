@@ -1,4 +1,4 @@
-# ngp-app
+# ngp-test
 
 ## Project setup
 ```
